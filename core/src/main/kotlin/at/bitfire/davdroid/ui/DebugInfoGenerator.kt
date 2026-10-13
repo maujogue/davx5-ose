@@ -154,7 +154,8 @@ class DebugInfoGenerator @Inject constructor(
                 context.packageName,
                 TaskProvider.ProviderName.JtxBoard.packageName,     // jtx Board
                 TaskProvider.ProviderName.OpenTasks.packageName,    // OpenTasks
-                TaskProvider.ProviderName.TasksOrg.packageName      // tasks.org
+                TaskProvider.ProviderName.TasksOrg.packageName,     // tasks.org
+                TaskProvider.ProviderName.FossifyCalendar.packageName   // Fossify Calendar
             )
             // ... and info about contact and calendar provider
             for (authority in arrayOf(ContactsContract.AUTHORITY, CalendarContract.AUTHORITY))
@@ -642,6 +643,8 @@ class DebugInfoGenerator @Inject constructor(
                     TaskProvider.ProviderName.OpenTasks.authority).asCalendarSyncAdapter(account), "OpenTasks task(s)"),
                 AccountDumpInfo(account, TaskProvider.ProviderName.TasksOrg.authority, TaskContract.Tasks.getContentUri(
                     TaskProvider.ProviderName.TasksOrg.authority).asCalendarSyncAdapter(account), "tasks.org task(s)"),
+                AccountDumpInfo(account, TaskProvider.ProviderName.FossifyCalendar.authority, TaskContract.Tasks.getContentUri(
+                    TaskProvider.ProviderName.FossifyCalendar.authority).asCalendarSyncAdapter(account), "Fossify Calendar task(s)"),
                 AccountDumpInfo(account, ContactsContract.AUTHORITY, ContactsContract.RawContacts.CONTENT_URI.asContactsSyncAdapter(account), "wrongly assigned raw contact(s)")
             )
 

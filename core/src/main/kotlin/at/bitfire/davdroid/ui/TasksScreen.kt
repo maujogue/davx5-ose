@@ -96,6 +96,9 @@ fun TasksCard(
     val openTasksInstalled = model.openTasksInstalled
     val openTasksSelected by model.openTasksSelected.collectAsStateWithLifecycle(false)
 
+    val fossifyCalendarInstalled = model.fossifyCalendarInstalled
+    val fossifyCalendarSelected by model.fossifyCalendarSelected.collectAsStateWithLifecycle(false)
+
     val showAgain by model.showAgain.collectAsStateWithLifecycle(true)
 
     TasksCard(
@@ -105,6 +108,8 @@ fun TasksCard(
         tasksOrgInstalled = tasksOrgInstalled,
         openTasksSelected = openTasksSelected,
         openTasksInstalled = openTasksInstalled,
+        fossifyCalendarSelected = fossifyCalendarSelected,
+        fossifyCalendarInstalled = fossifyCalendarInstalled,
         showAgain = showAgain,
         onSetShowAgain = model::setShowAgain,
         onProviderSelected = { provider ->
@@ -137,6 +142,8 @@ fun TasksCard(
     tasksOrgInstalled: Boolean,
     openTasksSelected: Boolean,
     openTasksInstalled: Boolean,
+    fossifyCalendarSelected: Boolean,
+    fossifyCalendarInstalled: Boolean,
     onProviderSelected: (TaskProvider.ProviderName) -> Unit = {},
     installApp: (String) -> Unit = {},
     showAgain: Boolean,
@@ -209,6 +216,23 @@ fun TasksCard(
                     .padding(top = 12.dp)
             )
 
+            RadioWithSwitch(
+                title = stringResource(R.string.intro_tasks_fossify_calendar),
+                summary = {
+                    Text(stringResource(R.string.intro_tasks_fossify_calendar_info))
+                },
+                isSelected = fossifyCalendarSelected,
+                isToggled = fossifyCalendarInstalled,
+                enabled = fossifyCalendarInstalled,
+                onSelected = { onProviderSelected(TaskProvider.ProviderName.FossifyCalendar) },
+                onToggled = { toggled ->
+                    if (toggled) installApp(TaskProvider.ProviderName.FossifyCalendar.packageName)
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 12.dp)
+            )
+
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
@@ -253,6 +277,8 @@ fun TasksCard_Preview() {
             tasksOrgInstalled = false,
             openTasksSelected = false,
             openTasksInstalled = false,
+            fossifyCalendarSelected = false,
+            fossifyCalendarInstalled = false,
             showAgain = true
         )
     }

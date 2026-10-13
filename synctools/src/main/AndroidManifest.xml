@@ -20,6 +20,10 @@
     <uses-permission android:name="at.techbee.jtx.permission.READ" />
     <uses-permission android:name="at.techbee.jtx.permission.WRITE" />
 
+    <!-- read/write tasks (Fossify Calendar) -->
+    <uses-permission android:name="org.fossify.calendar.permission.READ_TASKS" />
+    <uses-permission android:name="org.fossify.calendar.permission.WRITE_TASKS" />
+
     <application />
 
     <queries>
@@ -27,6 +31,7 @@
         <package android:name="at.techbee.jtx" />
         <package android:name="org.dmfs.tasks" />
         <package android:name="org.tasks" />
+        <package android:name="org.fossify.calendar" />
     </queries>
 
 </manifest>

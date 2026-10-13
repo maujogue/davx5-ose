@@ -31,6 +31,8 @@ class PermissionsViewModel @Inject constructor(
         private set
     var jtxAvailable by mutableStateOf(false)
         private set
+    var fossifyCalendarAvailable by mutableStateOf(false)
+        private set
 
     init {
         viewModelScope.launch {
@@ -52,6 +54,7 @@ class PermissionsViewModel @Inject constructor(
         openTasksAvailable = pm.resolveContentProvider(TaskProvider.ProviderName.OpenTasks.authority, 0) != null
         tasksOrgAvailable = pm.resolveContentProvider(TaskProvider.ProviderName.TasksOrg.authority, 0) != null
         jtxAvailable = pm.resolveContentProvider(TaskProvider.ProviderName.JtxBoard.authority, 0) != null
+        fossifyCalendarAvailable = pm.resolveContentProvider(TaskProvider.ProviderName.FossifyCalendar.authority, 0) != null
     }
 
 }

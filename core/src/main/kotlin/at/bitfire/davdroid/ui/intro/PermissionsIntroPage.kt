@@ -26,7 +26,8 @@ class PermissionsIntroPage @Inject constructor(
         val permissions = CONTACT_PERMISSIONS + CALENDAR_PERMISSIONS +
                 TaskProvider.ProviderName.JtxBoard.permissions +
                 TaskProvider.ProviderName.OpenTasks.permissions +
-                TaskProvider.ProviderName.TasksOrg.permissions
+                TaskProvider.ProviderName.TasksOrg.permissions +
+                TaskProvider.ProviderName.FossifyCalendar.permissions
         return if (PermissionUtils.haveAnyPermission(context, permissions))
             ShowPolicy.DONT_SHOW
         else

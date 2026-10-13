@@ -219,7 +219,8 @@ abstract class BaseSyncWorker(
                     TaskProvider.ProviderName.JtxBoard ->
                         jtxSyncer.create(accountId, resyncType, syncResult, settings)
                     TaskProvider.ProviderName.OpenTasks,
-                    TaskProvider.ProviderName.TasksOrg ->
+                    TaskProvider.ProviderName.TasksOrg,
+                    TaskProvider.ProviderName.FossifyCalendar ->
                         taskSyncer.create(accountId, currentProvider, resyncType, syncResult, settings)
                     else -> {
                         logger.warning("No valid tasks provider found, aborting sync")

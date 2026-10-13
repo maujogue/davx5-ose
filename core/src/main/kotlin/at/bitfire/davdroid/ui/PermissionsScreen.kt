@@ -117,6 +117,7 @@ fun PermissionsScreen(
         openTasksAvailable = model.openTasksAvailable,
         tasksOrgAvailable = model.tasksOrgAvailable,
         jtxAvailable = model.jtxAvailable,
+        fossifyCalendarAvailable = model.fossifyCalendarAvailable,
         modifier = modifier
     )
 }
@@ -129,6 +130,7 @@ fun PermissionsScreen(
     openTasksAvailable: Boolean?,
     tasksOrgAvailable: Boolean?,
     jtxAvailable: Boolean?,
+    fossifyCalendarAvailable: Boolean?,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -169,6 +171,8 @@ fun PermissionsScreen(
                 allPermissions.addAll(TaskProvider.ProviderName.TasksOrg.permissions)
             if (jtxAvailable == true)
                 allPermissions.addAll(TaskProvider.ProviderName.JtxBoard.permissions)
+            if (fossifyCalendarAvailable == true)
+                allPermissions.addAll(TaskProvider.ProviderName.FossifyCalendar.permissions)
             PermissionSwitchRow(
                 text = stringResource(R.string.permissions_all_title),
                 permissions = allPermissions,
@@ -235,6 +239,14 @@ fun PermissionsScreen(
                     permissions = TaskProvider.ProviderName.TasksOrg.permissions.toList(),
                     modifier = Modifier.padding(vertical = 4.dp)
                 )
+            if (fossifyCalendarAvailable == true)
+                PermissionSwitchRow(
+                    text = stringResource(R.string.permissions_fossify_calendar_title),
+                    summaryWhenGranted = stringResource(R.string.permissions_tasks_status_on),
+                    summaryWhenNotGranted = stringResource(R.string.permissions_tasks_status_off),
+                    permissions = TaskProvider.ProviderName.FossifyCalendar.permissions.toList(),
+                    modifier = Modifier.padding(vertical = 4.dp)
+                )
 
             Text(
                 text = stringResource(R.string.permissions_app_settings_hint),
@@ -262,7 +274,8 @@ fun PermissionsCard_Preview() {
             onKeepPermissionsRequested = {},
             openTasksAvailable = true,
             tasksOrgAvailable = true,
-            jtxAvailable = true
+            jtxAvailable = true,
+            fossifyCalendarAvailable = true
         )
     }
 }

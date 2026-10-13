@@ -54,10 +54,12 @@ class TasksViewModel @Inject constructor(
     val jtxSelected = currentProvider.map { it == TaskProvider.ProviderName.JtxBoard }
     val tasksOrgSelected = currentProvider.map { it == TaskProvider.ProviderName.TasksOrg }
     val openTasksSelected = currentProvider.map { it == TaskProvider.ProviderName.OpenTasks }
+    val fossifyCalendarSelected = currentProvider.map { it == TaskProvider.ProviderName.FossifyCalendar }
 
     var jtxInstalled by mutableStateOf(false)
     var tasksOrgInstalled by mutableStateOf(false)
     var openTasksInstalled by mutableStateOf(false)
+    var fossifyCalendarInstalled by mutableStateOf(false)
 
     init {
         viewModelScope.launch {
@@ -65,6 +67,7 @@ class TasksViewModel @Inject constructor(
                 jtxInstalled = isInstalled(TaskProvider.ProviderName.JtxBoard.packageName)
                 tasksOrgInstalled = isInstalled(TaskProvider.ProviderName.TasksOrg.packageName)
                 openTasksInstalled = isInstalled(TaskProvider.ProviderName.OpenTasks.packageName)
+                fossifyCalendarInstalled = isInstalled(TaskProvider.ProviderName.FossifyCalendar.packageName)
             }
         }
     }

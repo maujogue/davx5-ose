@@ -205,6 +205,17 @@
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/sync_tasks_org"/>
         </service>
+        <service
+            android:name=".sync.adapter.FossifyCalendarSyncAdapterService"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_fossify_calendar"/>
+        </service>
 
         <!-- account type "DAVx⁵ Address book" -->
         <service
@@ -279,6 +290,7 @@
         <package android:name="at.techbee.jtx" />
         <package android:name="org.dmfs.tasks" />
         <package android:name="org.tasks" />
+        <package android:name="org.fossify.calendar" />
 
         <!-- ICSx5 for Webcal feeds -->
         <package android:name="at.bitfire.icsdroid"/>

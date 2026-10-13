@@ -67,7 +67,8 @@ enum class SyncDataType {
                     EVENTS
                 TaskProvider.ProviderName.JtxBoard.authority,
                 TaskProvider.ProviderName.TasksOrg.authority,
-                TaskProvider.ProviderName.OpenTasks.authority ->
+                TaskProvider.ProviderName.OpenTasks.authority,
+                TaskProvider.ProviderName.FossifyCalendar.authority ->
                     TASKS
                 else -> throw IllegalArgumentException("Unknown authority: $authority")
             }

@@ -141,7 +141,7 @@ class TasksAppManager @Inject constructor(
     fun getDataStore(): LocalDataStore<*>? {
         val provider = currentProvider() ?: return null
         return when (provider) {
-            ProviderName.TasksOrg, ProviderName.OpenTasks -> localTaskListStoreFactory.create(provider)
+            ProviderName.TasksOrg, ProviderName.OpenTasks, ProviderName.FossifyCalendar -> localTaskListStoreFactory.create(provider)
             ProviderName.JtxBoard -> localJtxCollectionStore.get()
         }
     }
