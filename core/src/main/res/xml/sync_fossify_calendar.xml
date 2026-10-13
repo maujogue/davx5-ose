@@ -1,5 +1,5 @@
 <sync-adapter xmlns:android="http://schemas.android.com/apk/res/android"
-    android:contentAuthority="org.fossify.calendar.tasks"
+    android:contentAuthority="org.fossify.calendar.debug.tasks"
     android:accountType="@string/account_type"
     android:userVisible="false"
     android:supportsUploading="true"

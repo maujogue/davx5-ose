@@ -48,11 +48,11 @@ object TaskProvider {
             permissions = arrayOf("org.dmfs.permission.READ_TASKS", "org.dmfs.permission.WRITE_TASKS")
         ),
         FossifyCalendar(
-            authority = "org.fossify.calendar.tasks",
-            packageName = "org.fossify.calendar",
-            minVersionCode = 24,
-            minVersionName = "1.13.0",
-            permissions = arrayOf("org.fossify.calendar.permission.READ_TASKS", "org.fossify.calendar.permission.WRITE_TASKS")
+            authority = "org.fossify.calendar.debug.tasks",
+            packageName = "org.fossify.calendar.debug",
+            minVersionCode = 23,
+            minVersionName = "1.12.0",
+            permissions = arrayOf("org.fossify.calendar.debug.permission.READ_TASKS", "org.fossify.calendar.debug.permission.WRITE_TASKS")
         );
     }
 

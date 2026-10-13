@@ -290,7 +290,7 @@
         <package android:name="at.techbee.jtx" />
         <package android:name="org.dmfs.tasks" />
         <package android:name="org.tasks" />
-        <package android:name="org.fossify.calendar" />
+        <package android:name="org.fossify.calendar.debug" />
 
         <!-- ICSx5 for Webcal feeds -->
         <package android:name="at.bitfire.icsdroid"/>
